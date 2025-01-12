@@ -1,25 +1,27 @@
+
 import java.util.*;
 
 public class Main {
- 
+
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		// TODO Auto-generated method stub
 		
-		Scanner in = new Scanner(System.in);
 		
-		Queue<Integer> q = new LinkedList<>();
-		
-		int N = in.nextInt();
-		
-		for(int i = 1; i <= N; i++) {
-			q.offer(i);
+		List <Integer> queue = new LinkedList<>();
+		for(int i = 0; i < n; i++) {
+			queue.add(i+1);
 		}
 		
-		
-		while(q.size() > 1) {
-			q.poll();	// 맨 앞의 원소 버림 
-			q.offer(q.poll());	// 맨 앞의 원소를 버림과 동시에 버려진 원소를 맨 뒤에 삽입 
+		int size = n;
+		while(size > 1) {
+			queue.remove(0);
+			queue.add(queue.remove(0));
+			size--;
 		}
+		System.out.println(queue.remove(0));	
 		
-		System.out.println(q.poll());	// 마지막으로 남은 원소 출력 
+		
 	}
 }
